@@ -1,5 +1,7 @@
-* {
 
+* {
+    font-family: 'Poppins', sans-serif;
+    color:blueviolet;
 }
 
 body {
@@ -7,8 +9,42 @@ body {
     background-size: auto;
 }
 
+.page.area {
+    display: grid;
+    grid-template-areas: "logo logo logo" "nav nav nav" "main main main" "footer footer footer"
+}
+
 h1 {
     text-align: center;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    color: blueviolet;
+}
+
+h2 {
+    text-align: center;
+}
+
+.cuento-gallinita {
+    grid-area: main;
+    background-color: aliceblue;
+}
+
+.main_container {
+    grid-area: main;
+    display:flex;
+    justify-content: space-around;
+    background-color: rgb(245, 176, 225);
+}
+
+.nav_bar {
+    grid-area: nav;
+    display: flex;
+    justify-content: space-around;
+    background-color: aquamarine;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.footer {
+    grid-area: footer;
 }
