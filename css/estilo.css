@@ -1,12 +1,18 @@
 
 * {
-    font-family: 'Poppins', sans-serif;
-    color:blueviolet;
+    font-family: 'Patrick Hand', cursive;
+    color: rgb(78, 112, 223);
 }
 
 body {
     background-image: url(../img/natureee.jpg);
     background-size: auto;
+}
+
+.logo {
+    border-radius: 50%;
+    max-width: 150px;
+    max-height: 150px;
 }
 
 .page.area {
@@ -34,6 +40,12 @@ h2 {
     background-color: rgb(245, 176, 225);
 }
 
+.titulo {
+    font-size: 1.9rem;
+    display: flex;
+    align-items: center;
+}
+
 .nav_bar {
     grid-area: nav;
     display: flex;
@@ -45,6 +57,68 @@ ul {
     list-style-type: none;
 }
 
+ul li a {
+    text-decoration: none;
+}
+
+.navBar {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-content: center;
+    gap: 30px;
+    font-size: 1.2rem;
+  }
+  
+  .navbar {
+    font-size: 1.4rem;
+  }
+  
+  .navbar-light .navbar-nav {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+  }
+  .navbar-light .navbar-nav .nav-link {
+    color: rgb(204, 63, 192);
+  }
+  .navbar-light .navbar-nav .nav-link:hover {
+    color: rgb(135, 115, 224);
+  }
+  
+  .navbar-collapse {
+    justify-content: center;
+    background-color: aliceblue;
+  }
+
+  .contacto {
+    grid-area: main;
+  }
+  
+  .form-label {
+    color: #9c459c;
+    font-size: 1.2rem;
+  }
+
+  .btn-primary {
+    display: inline-block;
+    padding: 10px;
+    border: rgb(255, 252, 197);
+    background-color: rgb(189, 28, 221);
+  }
+
 .footer {
     grid-area: footer;
 }
+
+  footer ul {
+    display: flex;
+    justify-content: space-around;
+    font-size: 2rem;
+  }
+  footer ul li {
+    list-style-type: none;
+  }
+  footer ul li a {
+    color: rgb(118, 82, 248);
+  }
