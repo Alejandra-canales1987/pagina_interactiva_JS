@@ -106,7 +106,7 @@ ul li a {
     border: rgb(255, 252, 197);
     background-color: rgb(189, 28, 221);
   }
-
+  
 .footer {
     grid-area: footer;
 }
