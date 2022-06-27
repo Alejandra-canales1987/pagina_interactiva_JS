@@ -9,16 +9,13 @@ body {
     background-size: auto;
 }
 
+
 .logo {
     border-radius: 50%;
     max-width: 150px;
     max-height: 150px;
 }
 
-.page.area {
-    display: grid;
-    grid-template-areas: "logo logo logo" "nav nav nav" "main main main" "footer footer footer"
-}
 
 h1 {
     text-align: center;
@@ -28,6 +25,14 @@ h2 {
     text-align: center;
 }
 
+.main__container-image {
+  grid-area: main;
+  border-radius: 40%;
+  width: 30%;
+  height: auto;
+  margin: 10px;
+}
+
 .cuento-gallinita {
     grid-area: main;
     background-color: aliceblue;
@@ -35,9 +40,14 @@ h2 {
 
 .main_container {
     grid-area: main;
-    display:flex;
+    display: flex;
     justify-content: space-around;
     background-color: rgb(245, 176, 225);
+}
+
+.imagenes {
+  display: flex;
+  justify-content: center;
 }
 
 .titulo {
