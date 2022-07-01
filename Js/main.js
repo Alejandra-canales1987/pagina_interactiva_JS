@@ -60,7 +60,7 @@ let producto3 = {
 
 let producto4 = {
     nombre: "Libro interactivo",
-    precio: 1.000,
+    precio: 1000,
     color: "Rojo con estampado"
 }
 
@@ -71,6 +71,15 @@ let producto5 = {
 }
 
 const ListadeCompra = [producto1, producto2, producto3, producto4, producto5];
+
+
+ListadeCompra.push ({nombre: "Libro de colorear", precio: 800, color: "Blanco y negro"});
+const Productos = ListadeCompra.filter ((el) => el.precio < 400);
+const existe = ListadeCompra.some ((el) => el.nombre == "Libro interactivo"); 
+
+console.log (Productos);
+console.log (existe);
+console.log (ListadeCompra);
 
 
 let user = prompt ("Ingrese su usuario");
