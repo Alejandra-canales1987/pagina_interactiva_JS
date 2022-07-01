@@ -38,13 +38,40 @@ if (NotaObtenida == 1) {
 }
 
 
-// Simulador carrito de compras con bucle WHILE y funciones para calcular valor total
+// Simulador carrito de compras con bucle WHILE, objetos, funciones y array para calcular valor total
 
-let producto1 = 500; // cuaderno
-let producto2 = 300; // lápiz
-let producto3 = 250; // goma
-let producto4 = 1000; // libro interactivo
-let producto5 = 700; // crayones
+let producto1 = {
+    nombre: "Cuaderno",
+    precio: 500,
+    color: "Azul" 
+}
+
+let producto2 = {
+    nombre: "Lápiz",
+    precio: 300,
+    color: "Negro"
+}
+
+let producto3 = {
+    nombre: "Goma de borrar",
+    precio: 250,
+    color: "blanco"
+}
+
+let producto4 = {
+    nombre: "Libro interactivo",
+    precio: 1.000,
+    color: "Rojo con estampado"
+}
+
+let producto5 = {
+    nombre: "Crayones",
+    precio: 700,
+    color: "Multicolor"
+}
+
+const ListadeCompra = [producto1, producto2, producto3, producto4, producto5];
+
 
 let user = prompt ("Ingrese su usuario");
 
@@ -52,62 +79,58 @@ let total = 0;
 
 let carritoCompras = prompt (
     "Bienvenido/a" + user +  " " +  "a nuestra tiendita virtual, por favor seleccione uno de nuestros artículos para agregar a su carrito: \n"
-     + "1. Cuaderno = " + producto1 + "\n"
-     + "2. Lápiz grafito = " + producto2 + "\n"
-     + "3. Goma de borrar = " + producto3 + "\n"
-     + "4. Libro interactivo = " + producto4 + "\n"
-     + "5. Caja de crayones de colores = " + producto5 + "\n"
+     + "1. Cuaderno = " + producto1.precio + "\n"
+     + "2. Lápiz grafito = " + producto2.precio + "\n"
+     + "3. Goma de borrar = " + producto3.precio + "\n"
+     + "4. Libro interactivo = " + producto4.precio + "\n"
+     + "5. Caja de crayones de colores = " + producto5.precio + "\n"
      + "Si no desea seguir con la compra, por favor presione ESC"
     
-)
+);
 
-function nombreProducto(numeroProducto) {
-    switch(parseInt(numeroProducto)) {
-        case 1: return "Cuaderno";
-        case 2: return "Lapiz Grafito";
-        case 3: return "Goma de borrar";
-        case 4: return "Libro interactivo";
-        case 5: return "Caja de crayones de colores";
-        default: return "";
+function TotalProductos (carritoCompras) {
+    switch (parseInt(carritoCompras)) {
+    case 1: return producto1.precio;
+    case 2: return producto2.precio;
+    case 3: return producto3.precio;
+    case 4: return producto4.precio;
+    case 5: return producto5.precio; 
+    default: return;
+}
+
+}
+
+function NombreProductos (carritoCompras) {
+    switch (parseInt(carritoCompras)) {
+        case 1: return producto1.nombre;
+        case 2: return producto2.nombre;
+        case 3: return producto3.nombre;
+        case 4: return producto4.nombre;
+        case 5: return producto5.nombre;
+        default: return;
     }
 }
 
-function precioProducto(numeroProducto) {
-    switch(parseInt(numeroProducto)) {
-        case 1: return producto1;
-        case 2: return producto2;
-        case 3: return producto3;
-        case 4: return producto4;
-        case 5: return producto5;
-        default: return 0;
-    }
-}
+console.log (user + "ha agregado " + NombreProductos(carritoCompras) + " al carrito de compras");
+total = total + TotalProductos (carritoCompras);
 
-console.log (user + "ha agregado " + nombreProducto(carritoCompras) + " al carrito de compras");
-total = total + precioProducto(carritoCompras);
-
-while (carritoCompras != "" && carritoCompras != "ESC")  {
+while (carritoCompras != "" && carritoCompras != "ESC") {
     carritoCompras = prompt ("Porfavor ingrese otro producto al carrito", "");
-    total = total + precioProducto(carritoCompras);
-    console.log (user + "ha agregado " + nombreProducto(carritoCompras) + " al carrito de compras");
-}
-
-alert("Su total es de " + total);
-alert ("¡¡Muchas gracias, por comprar con nosotros que tenga buen día!!");
-
-
-// Simulador de sumas con bucle FOR
-
-let NumeroIngresado = parseInt (prompt ("Por favor " + nombreIngresado + " ingrese un número"));
-
-if (NumeroIngresado == NaN) {
-
-console.log ("El valor ingresado no es un número");
-    } else {
-        for (let i =1; i<=10; i++){
-            console.log (NumeroIngresado + i);
+    let parseado = parseInt(carritoCompras);
+    if (!isNaN(parseado)) {
+        // parseado es un numero
+        if (parseado >= 6) {
+            console.log ("La opción ingresada no existe en la lista de productos");
+        } else {
+            total = total + TotalProductos(carritoCompras); 
+            console.log( user + "agrego", NombreProductos(carritoCompras), "al carrito de compras");
         }
     }
+}
+
+
+alert(total = "su total es de = " + total);
+alert ("¡¡Muchas gracias, por comprar con nosotros que tenga buen día!!");
 
 //funciones varias
 
