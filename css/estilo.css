@@ -2,6 +2,7 @@
 * {
     font-family: 'Patrick Hand', cursive;
     color: rgb(78, 112, 223);
+    font-size: 1.3rem;
 }
 
 body {
@@ -33,9 +34,28 @@ h2 {
   margin: 10px;
 }
 
-.cuento-gallinita {
+.niños { 
+  max-height: 150px;
+  width: 150px;
+  display: inline-block;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+}
+
+.cuento-gallinita, .cuento-juguete {
     grid-area: main;
     background-color: aliceblue;
+    border: 2px solid blue;
+    border-radius: 5%;
+    max-height: 800px;
+    max-width: 800px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    box-shadow: 5px 5px;
 }
 
 .main_container {

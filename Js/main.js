@@ -97,27 +97,12 @@ let carritoCompras = prompt (
     
 );
 
-function TotalProductos (carritoCompras) {
-    switch (parseInt(carritoCompras)) {
-    case 1: return producto1.precio;
-    case 2: return producto2.precio;
-    case 3: return producto3.precio;
-    case 4: return producto4.precio;
-    case 5: return producto5.precio; 
-    default: return;
+function TotalProductos(carritoCompras) {
+    return ListadeCompra[carritoCompras - 1].precio;
 }
 
-}
-
-function NombreProductos (carritoCompras) {
-    switch (parseInt(carritoCompras)) {
-        case 1: return producto1.nombre;
-        case 2: return producto2.nombre;
-        case 3: return producto3.nombre;
-        case 4: return producto4.nombre;
-        case 5: return producto5.nombre;
-        default: return;
-    }
+function NombreProductos(carritoCompras) {
+    return ListadeCompra[carritoCompras - 1].nombre;
 }
 
 console.log (user + "ha agregado " + NombreProductos(carritoCompras) + " al carrito de compras");
@@ -137,6 +122,14 @@ while (carritoCompras != "" && carritoCompras != "ESC") {
     }
 }
 
+const preciosConDescuento = ListadeCompra.map ((el) => {
+    return {
+        nombre: el.nombre,
+        precio: el.precio -1.2,
+    }
+});
+
+console.log (preciosConDescuento);
 
 alert(total = "su total es de = " + total);
 alert ("¡¡Muchas gracias, por comprar con nosotros que tenga buen día!!");
