@@ -167,3 +167,7 @@ ul li a {
   .mainsection {
     grid-area: main;
   }
+
+  .invisible {
+    display: none;
+  }
