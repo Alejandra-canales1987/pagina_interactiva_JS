@@ -2,7 +2,7 @@
 * {
     font-family: 'Patrick Hand', cursive;
     color: rgb(78, 112, 223);
-    font-size: 1.3rem;
+    font-size: 1.2rem;
 }
 
 body {
@@ -11,10 +11,20 @@ body {
 }
 
 
+.page-area {
+  display: grid;
+  grid-template-areas: "logo logo logo" "nav nav nav" "main main main" "footer footer footer";
+
+}
+
+header {
+  grid-area: logo;
+}
+
 .logo {
-    border-radius: 50%;
-    max-width: 150px;
-    max-height: 150px;
+  border-radius: 50%;
+  max-width: 150px;
+  max-height: 150px;
 }
 
 
@@ -27,11 +37,14 @@ h2 {
 }
 
 .main__container-image {
-  grid-area: main;
   border-radius: 40%;
-  width: 30%;
-  height: auto;
+  width: 100px;
+  height: 100px;
   margin: 10px;
+}
+
+p {
+  text-align: center;
 }
 
 .niños { 
@@ -46,7 +59,6 @@ main {
 }
 
 .cuento-gallinita, .cuento-juguete {
-    grid-area: main;
     background-color: aliceblue;
     border: 2px solid blue;
     border-radius: 5%;
@@ -59,7 +71,6 @@ main {
 }
 
 .main_container {
-    grid-area: main;
     display: flex;
     justify-content: space-around;
     background-color: rgb(245, 176, 225);
@@ -68,6 +79,7 @@ main {
 .imagenes {
   display: flex;
   justify-content: center;
+  height: 100px;
 }
 
 .titulo {
@@ -76,8 +88,11 @@ main {
     align-items: center;
 }
 
+nav {
+  grid-area: nav;
+}
+
 .nav_bar {
-    grid-area: nav;
     display: flex;
     justify-content: space-around;
     background-color: aquamarine;
@@ -120,10 +135,6 @@ ul li a {
     justify-content: center;
     background-color: aliceblue;
   }
-
-  .contacto {
-    grid-area: main;
-  }
   
   .form-label {
     color: #9c459c;
@@ -151,4 +162,8 @@ ul li a {
   }
   footer ul li a {
     color: rgb(118, 82, 248);
+  }
+
+  .mainsection {
+    grid-area: main;
   }
