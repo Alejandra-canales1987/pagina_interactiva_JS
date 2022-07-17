@@ -1,38 +1,49 @@
-// Simulador carrito de compras con bucle WHILE, objetos, funciones y array para calcular valor total
+// recupero el usuario del local storage 
+
+sessionStorage.getItem ("usuarios");
+
+
+
+// Simulador carrito de compras objetos y array de productos
 
 let producto1 = {
     nombre: "Cuaderno",
     precio: 500,
     color: "Azul",
-    imagen: "../img/notebook.png"
+    imagen: "../img/notebook.png",
+    cantidad: 0
 }
 
 let producto2 = {
     nombre: "Lápiz",
     precio: 300,
     color: "Negro",
-    imagen: "../img/pencil.png"
+    imagen: "../img/pencil.png",
+    cantidad: 0,
 }
 
 let producto3 = {
     nombre: "Goma de borrar",
     precio: 250,
     color: "blanco",
-    imagen: "../eraser.png"
+    imagen: "../eraser.png",
+    cantidad: 0
 }
 
 let producto4 = {
     nombre: "Libro interactivo",
     precio: 1000,
     color: "Rojo con estampado",
-    imagen: "../librointeractivo.jpg"
+    imagen: "../librointeractivo.jpg",
+    cantidad: 0
 }
 
 let producto5 = {
     nombre: "Crayones",
     precio: 700,
     color: "Multicolor",
-    imagen: "../crayola.jfif"
+    imagen: "../crayola.jfif",
+    cantidad: 0
 }
 
 
@@ -48,41 +59,7 @@ console.log (existe);
 console.log (ListadeCompra);
 
 
-let user = prompt ("Ingrese su usuario");
-
 let total = 0;
-
-let mensajeCarrito =  "Bienvenido/a" + user +  " " +  "a nuestra tiendita virtual, por favor seleccione uno de nuestros artículos para agregar a su carrito: \n"
-+ "1. Cuaderno = " + producto1.precio + "\n"
-+ "2. Lápiz grafito = " + producto2.precio + "\n"
-+ "3. Goma de borrar = " + producto3.precio + "\n"
-+ "4. Libro interactivo = " + producto4.precio + "\n"
-+ "5. Caja de crayones de colores = " + producto5.precio + "\n"
-+ "Si no desea seguir con la compra, por favor presione ESC";
-
-function TotalProductos(carritoCompras) {
-    return ListadeCompra[carritoCompras - 1].precio;
-}
-
-function NombreProductos(carritoCompras) {
-    return ListadeCompra[carritoCompras - 1].nombre;
-}
-
-carritoCompras = prompt(mensajeCarrito);
-
-while (carritoCompras != "" && carritoCompras != "ESC") {
-    let parseado = parseInt(carritoCompras);
-    if (!isNaN(parseado)) {
-        // parseado es un numero
-        if (parseado >= 6) {
-            console.log ("La opción ingresada no existe en la lista de productos");
-        } else {
-            total = total + TotalProductos(carritoCompras); 
-            console.log( user + "agrego", NombreProductos(carritoCompras), "al carrito de compras");
-        }
-    }
-    carritoCompras = prompt(mensajeCarrito);
-}
 
 const preciosConDescuento = ListadeCompra.map ((el) => {
     return {
@@ -93,20 +70,52 @@ const preciosConDescuento = ListadeCompra.map ((el) => {
 
 console.log (preciosConDescuento);
 
-alert("su total es de = " + total);
-alert ("¡¡Muchas gracias, por comprar con nosotros que tenga buen día!!");
+// array del carrito y elementos creados con eventos y DOM
 
+const productosDelcarrito = [];
 
-// manipulando el DOM
-
-for (const producto of ListadeCompra) {
-    let li = document.createElement ("li")
-    li.innerHTML= `nombre: ${producto.nombre} $ ${producto.precio}`
-    document.getElementById ("productos").appendChild (li);
-}
 
 const boleta = document.createElement ("main");
 
 boleta.innerHTML = `su total es de = ${total}`
 document.getElementById("article").appendChild (boleta);
 
+for (const producto of ListadeCompra) {
+    let li = document.createElement ("li")
+    li.innerHTML= `nombre: ${producto.nombre} $ ${producto.precio}`
+    document.getElementById ("productos").appendChild (li);
+    let botonAgregar = document.createElement ("button")
+    let botonQuitar = document.createElement ("button")
+    botonAgregar.innerHTML = "Agregar al carrito"
+    botonQuitar.innerHTML= "Quitar del carrito"
+    li.appendChild (botonAgregar)
+    li.appendChild (botonQuitar)
+    botonAgregar.onclick = () => {
+        total = total + producto.precio
+        boleta.innerHTML = `su total es de = ${total}`
+        productosDelcarrito.push(producto)
+        
+        productosDelcarrito.innerHTML
+        document.getElementById ("mis-compras")
+        
+        botonQuitar.onclick = () =>{
+            total = total - producto.precio
+            productosDelcarrito.pop (producto)
+        }
+        
+    }
+    
+    
+    
+}
+
+
+function calcularCompra (total) {
+    total + ListadeCompra.precio;
+}
+
+
+
+console.log (productosDelcarrito);
+calcularCompra (total);
+console.log (total);

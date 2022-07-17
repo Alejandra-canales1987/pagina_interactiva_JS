@@ -14,7 +14,7 @@ function rellenarSpans(eleccion) {
         for (let span of document.getElementsByClassName("personaje-con-articulo-indef")) {
             span.innerHTML = "un niño"
         } 
-
+        
     } else if (eleccion == "niña") {
         for (let span of document.getElementsByClassName ("personaje-con-articulo-indef")) {
             span.innerHTML = "una niña"
@@ -27,7 +27,7 @@ function seleccionJuguete(eleccion) {
         for (let span of document.getElementsByClassName("juguete-con-articulo-indef")) {
             span.innerHTML = "un trompo que le encantaba"
         } 
-
+        
     } else if (eleccion == "yoyo") {
         for (let span of document.getElementsByClassName ("juguete-con-articulo-indef")) {
             span.innerHTML = "un yoyo que le gustaba mucho"
@@ -40,9 +40,9 @@ function Seleccionpadre(eleccion) {
         for (let span of document.getElementsByClassName("articulo-padre")) {
             span.innerHTML = "a su papá" + "\n"
             span.innerHTML += "Él le dijo: recoge tu cuarto y verás como aparece"
-
+            
         }
-
+        
     } else if (eleccion == "mom") {
         for (let span of document.getElementsByClassName ("articulo-padre")) {
             span.innerHTML = " a su mamá" + "\n"
@@ -56,7 +56,7 @@ function seleccionMueble (eleccion) {
         for (let span of document.getElementsByClassName("articulos-cuarto")) {
             span.innerHTML = "cesta"
         } 
-
+        
     } else if (eleccion == "cajones") {
         for (let span of document.getElementsByClassName ("articulos-cuarto")) {
             span.innerHTML = "cajones"
@@ -72,13 +72,13 @@ function seleccionMueble (eleccion) {
 
 
 niño.onclick = () => {
-
+    
     console.log ("Haz seleccionado al niño")
-
+    
     rellenarSpans("niño")
     document.getElementById("pag1").classList.add("invisible")
     document.getElementById("pag2").classList.remove("invisible")
-
+    
 };
 niña.onclick = () => {
     console.log ("Haz seleccionado a la niña")
