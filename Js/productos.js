@@ -102,12 +102,17 @@ for (const producto of ListadeCompra) {
             total = total - producto.precio
             productosDelcarrito.pop (producto)
         }
+
+        localStorage.setItem ("productos",JSON.stringify(productosDelcarrito));
         
     }
     
     
     
 }
+
+
+localStorage.setItem ("productos",JSON.stringify(productosDelcarrito));
 
 
 function calcularCompra (total) {
