@@ -31,12 +31,7 @@ function limpiarCampos (nombre, contraseña, email) {
     email.value= "";
 }
 
-function CrearUsuario (nombre, contraseña, email) {
-    nombre= nombre.value;
-    contraseña=contraseña.value;
-    email=email.value;
-    
-    
+function CrearUsuario (nombre, contraseña, email) {    
     const nuevoUsuario = new Usuario (nombre, contraseña, email);
     return nuevoUsuario; 
 }
@@ -57,7 +52,7 @@ function Guardarstorage (elemento) {
 botonEnviar.addEventListener ("click", (e) => {
     e. preventDefault ()
     
-    let nuevoUser = CrearUsuario (inputUsuario, inputContraseña, inputMail);
+    let nuevoUser = CrearUsuario (inputUsuario.value, inputContraseña.value, inputMail.value);
     guardarUsuario (nuevoUser);
     limpiarCampos (inputUsuario,inputContraseña,inputMail);
     Guardarstorage (Usuarios);

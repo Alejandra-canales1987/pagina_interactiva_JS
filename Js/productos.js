@@ -1,8 +1,6 @@
-// recupero el usuario del local storage 
+// recupero el usuario del local storage
 
 sessionStorage.getItem ("usuarios");
-
-
 
 // Simulador carrito de compras objetos y array de productos
 
@@ -49,6 +47,8 @@ let producto5 = {
 
 const ListadeCompra = [producto1, producto2, producto3, producto4, producto5];
 
+const barato = producto.precio <= 500 && "Productos baratos"
+
 
 ListadeCompra.push ({nombre: "Libro de colorear", precio: 800, color: "Blanco y negro"});
 const Productos = ListadeCompra.filter ((el) => el.precio < 400);
@@ -70,9 +70,10 @@ const preciosConDescuento = ListadeCompra.map ((el) => {
 
 console.log (preciosConDescuento);
 
-// array del carrito y elementos creados con eventos y DOM
+// array del carrito y elementos creados con eventos y DOM, Recupero lo que ya tenía en el carrito desde LS
 
-const productosDelcarrito = [];
+let productosAsString = localStorage.getItem("productos");
+let productosDelcarrito = JSON.parse(productosAsString) ?? []
 
 
 const boleta = document.createElement ("main");
@@ -80,39 +81,44 @@ const boleta = document.createElement ("main");
 boleta.innerHTML = `su total es de = ${total}`
 document.getElementById("article").appendChild (boleta);
 
+//aplico desestructuración al iterar el array de objetos "ListadeCompra"
+
 for (const producto of ListadeCompra) {
+    const {nombre, precio} = producto
     let li = document.createElement ("li")
-    li.innerHTML= `nombre: ${producto.nombre} $ ${producto.precio}`
+    li.innerHTML= `nombre: ${nombre} $ ${precio}`
     document.getElementById ("productos").appendChild (li);
     let botonAgregar = document.createElement ("button")
-    let botonQuitar = document.createElement ("button")
     botonAgregar.innerHTML = "Agregar al carrito"
-    botonQuitar.innerHTML= "Quitar del carrito"
     li.appendChild (botonAgregar)
-    li.appendChild (botonQuitar)
     botonAgregar.onclick = () => {
         total = total + producto.precio
+
         boleta.innerHTML = `su total es de = ${total}`
         productosDelcarrito.push(producto)
         
         productosDelcarrito.innerHTML
         document.getElementById ("mis-compras")
         
-        botonQuitar.onclick = () =>{
-            total = total - producto.precio
-            productosDelcarrito.pop (producto)
-        }
-
         localStorage.setItem ("productos",JSON.stringify(productosDelcarrito));
         
     }
-    
-    
     
 }
 
 
 localStorage.setItem ("productos",JSON.stringify(productosDelcarrito));
+
+// duplicando un producto y cambiando sus propiedades con SPREAD ...
+
+const Spreadproducto4 = {
+    ...producto4,
+    nombre: "Cuento de tela",
+    color: "Multicolor",
+    precio: "1200" 
+};
+
+console.log (Spreadproducto4);
 
 
 function calcularCompra (total) {
