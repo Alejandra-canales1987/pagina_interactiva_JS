@@ -47,9 +47,6 @@ let producto5 = {
 
 const ListadeCompra = [producto1, producto2, producto3, producto4, producto5];
 
-const barato = producto.precio <= 500 && "Productos baratos"
-
-
 ListadeCompra.push ({nombre: "Libro de colorear", precio: 800, color: "Blanco y negro"});
 const Productos = ListadeCompra.filter ((el) => el.precio < 400);
 const existe = ListadeCompra.some ((el) => el.nombre == "Libro interactivo"); 
@@ -101,6 +98,15 @@ for (const producto of ListadeCompra) {
         document.getElementById ("mis-compras")
         
         localStorage.setItem ("productos",JSON.stringify(productosDelcarrito));
+
+        Swal.fire({
+            title: 'Ha agregado un producto a su lista de compras',
+            text: '¡Yipee!',
+            imageUrl: "https://cdn1.iconfinder.com/data/icons/shopping-and-commerce-2-9/134/197-512.png",
+            imageWidth: 200,
+            imageHeight: 100,
+            imageAlt: 'Custom image',
+          })
         
     }
     

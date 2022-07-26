@@ -54,8 +54,21 @@ botonEnviar.addEventListener ("click", (e) => {
     
     let nuevoUser = CrearUsuario (inputUsuario.value, inputContraseña.value, inputMail.value);
     guardarUsuario (nuevoUser);
+    let u = inputUsuario.value;
     limpiarCampos (inputUsuario,inputContraseña,inputMail);
     Guardarstorage (Usuarios);
+
+    
+    Swal.fire({
+      title: 'Bienvenido' + "" +  u,
+      text: "Disfrute su pasar por nuestra página",
+      showClass: {
+        popup: 'animate__animated animate__fadeInDown'
+      },
+      hideClass: {
+        popup: 'animate__animated animate__fadeOutUp'
+      }
+    })
     
     
 });
