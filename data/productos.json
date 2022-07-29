@@ -1,0 +1,37 @@
+[
+    {
+        "nombre": "Cuaderno",
+        "precio": 500,
+        "color": "Azul",
+        "imagen": "../img/notebook.png",
+        "cantidad": 0
+    },
+    {
+        "nombre": "Lápiz",
+        "precio": 300,
+        "color": "Negro",
+        "imagen": "../img/pencil.png",
+        "cantidad": 0
+    },
+    {
+        "nombre": "Goma de borrar",
+        "precio": 250,
+        "color": "blanco",
+        "imagen": "../eraser.png",
+        "cantidad": 0
+    },
+    {
+        "nombre": "Libro interactivo",
+        "precio": 1000,
+        "color": "Rojo con estampado",
+        "imagen": "../librointeractivo.jpg",
+        "cantidad": 0
+    },
+    {
+        "nombre": "Crayones",
+        "precio": 700,
+        "color": "Multicolor",
+        "imagen": "../crayola.jfif",
+        "cantidad": 0
+    }
+]
