@@ -87,6 +87,7 @@ obtenerproductos().then((ListadeCompra) => {
 
     // duplicando un producto y cambiando sus propiedades con SPREAD ...
 
+    const producto4 = ListadeCompra[3];
     const Spreadproducto4 = {
         ...producto4,
         nombre: "Cuento de tela",
