@@ -51,9 +51,9 @@ obtenerproductos().then((ListadeCompra) => {
     //aplico desestructuración al iterar el array de objetos "ListadeCompra"
 
     for (const producto of ListadeCompra) {
-        const {nombre, precio} = producto
+        const {nombre, precio, imagen} = producto
         let li = document.createElement ("li")
-        li.innerHTML= `nombre: ${nombre} $ ${precio}`
+        li.innerHTML= `nombre: ${nombre} $ ${precio} <img src="${imagen}"></img>`
         document.getElementById ("productos").appendChild (li);
         let botonAgregar = document.createElement ("button")
         botonAgregar.innerHTML = "Agregar al carrito"

@@ -17,21 +17,21 @@
         "nombre": "Goma de borrar",
         "precio": 250,
         "color": "blanco",
-        "imagen": "../eraser.png",
+        "imagen": "../img/eraser.png",
         "cantidad": 0
     },
     {
         "nombre": "Libro interactivo",
         "precio": 1000,
         "color": "Rojo con estampado",
-        "imagen": "../librointeractivo.jpg",
+        "imagen": "../img/librointeractivo.jpg",
         "cantidad": 0
     },
     {
         "nombre": "Crayones",
         "precio": 700,
         "color": "Multicolor",
-        "imagen": "../crayola.jfif",
+        "imagen": "../img/crayola.jfif",
         "cantidad": 0
     }
 ]

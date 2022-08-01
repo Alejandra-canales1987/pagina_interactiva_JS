@@ -183,7 +183,19 @@ button {
   margin: 20px;
 }
 
+#boton-tarjeta, #boton-pago {
+  border-radius: 20%;
+  padding:10px;
+  margin: 20px;
+
+}
+
 #article {
   display:flex;
   justify-content: space-around;
+}
+
+img, svg {
+  max-width: 200px;
+  max-height: 100px;
 }

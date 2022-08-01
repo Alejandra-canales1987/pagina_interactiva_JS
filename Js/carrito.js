@@ -43,3 +43,26 @@ productosDelcarrito.length === 0 && alert("¡El carrito esta vacío!");
 
 document.getElementById("article").appendChild (boleta);
 boleta.innerHTML = `su total es de = ${total}`
+
+let botonTarjeta= document.getElementById ("boton-tarjeta")
+const cleave = new Cleave('#boton-tarjeta', {
+    creditCard: true,
+    onCreditCardTypeChanged: function (type) {
+        // update UI ...
+    }
+});
+
+let botonPago = document.getElementById("boton-pago")
+botonPago.onclick = (e) => {
+    Swal.fire({
+        title: 'Felicidades',
+        text: 'Su pago se ha efectuado con éxito, pronto enviaremos su producto a casa!! Muchas gracias por comprar con nosotros',
+        imageUrl: "https://thumbs.dreamstime.com/b/el-terminal-de-la-posici%C3%B3n-confirma-el-pago-hecho-trav%C3%A9s-del-tel%C3%A9fono-m%C3%B3vil-93101198.jpg",
+        imageWidth: 200,
+        imageHeight: 100,
+        imageAlt: 'Custom image',
+      })
+}
+
+
+
