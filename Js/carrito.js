@@ -5,6 +5,11 @@ let total = 0;
 
 const boleta = document.createElement ("main");
 
+function mostrarCarrito() {
+
+    document.getElementById("productos").innerHTML = ""
+}
+
 
 //aplico desestructurar al iterar el array "productosDelcarrito" que recupere del LS
 
@@ -44,7 +49,7 @@ productosDelcarrito.length === 0 && alert("¡El carrito esta vacío!");
 document.getElementById("article").appendChild (boleta);
 boleta.innerHTML = `su total es de = ${total}`
 
-let botonTarjeta= document.getElementById ("boton-tarjeta")
+let botonTarjeta1= document.getElementById ("boton-tarjeta")
 const cleave = new Cleave('#boton-tarjeta', {
     creditCard: true,
     onCreditCardTypeChanged: function (type) {
@@ -52,6 +57,18 @@ const cleave = new Cleave('#boton-tarjeta', {
     }
 });
 
+let botonTarjeta2= document.getElementById ("fecha-tarjeta")
+const cleave2 = new Cleave('#fecha-tarjeta', {
+    date: true,
+    datePattern: ['m', 'y']
+});
+
+let botonTarjeta3= document.getElementById ("codigo-tarjeta")
+const cleave3 = new Cleave('#codigo-tarjeta', {
+    delimiter: '·',
+    blocks: [3],
+    uppercase: true
+});
 let botonPago = document.getElementById("boton-pago")
 botonPago.onclick = (e) => {
     Swal.fire({
@@ -62,6 +79,13 @@ botonPago.onclick = (e) => {
         imageHeight: 100,
         imageAlt: 'Custom image',
       })
+
+     mostrarCarrito(productosDelcarrito);
+     total = 0;
+     document.getElementById("article").appendChild (boleta);
+     boleta.innerHTML = `su total es de = ${total}`
+
+     localStorage.clear (productosDelcarrito);
 }
 
 

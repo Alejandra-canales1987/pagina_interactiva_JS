@@ -38,97 +38,108 @@ function seleccionJuguete(eleccion) {
 function Seleccionpadre(eleccion) {
     if (eleccion == "dad") {
         for (let span of document.getElementsByClassName("articulo-padre")) {
-            span.innerHTML = "a su papá" + "\n"
-            span.innerHTML += "Él le dijo: recoge tu cuarto y verás como aparece"
+            span.innerHTML = "a su papá" + "" + "Él le dijo: recoge tu cuarto y verás como aparece"
             
         }
         
     } else if (eleccion == "mom") {
         for (let span of document.getElementsByClassName ("articulo-padre")) {
-            span.innerHTML = " a su mamá" + "\n"
-            span.innerHTML += "Ella le dijo: recoge tu cuarto y verás como aparece"
+            span.innerHTML = " a su mamá" + "" + "Ella le dijo: recoge tu cuarto y verás como aparece"
+        }
+            
         }
     }
-}
 
-function seleccionMueble (eleccion) {
-    if (eleccion == "cesta") {
-        for (let span of document.getElementsByClassName("articulos-cuarto")) {
-            span.innerHTML = "cesta"
-        } 
-        
-    } else if (eleccion == "cajones") {
-        for (let span of document.getElementsByClassName ("articulos-cuarto")) {
-            span.innerHTML = "cajones"
-        } 
-    } else if (eleccion == "estantes") {
-        for (let span of document.getElementsByClassName ("articulos-cuarto")) {
-            span.innerHTML = "estantes"
-            span.innerHTML += "Y de repente, cuando recogía un juguete de debajo de la cama, lo vió"
+
+    function seleccionMueble(eleccion) {
+
+        if (eleccion == "cesta") {
+    
+            document.getElementById("articulos-ropa-sucia").innerHTML = "cesta"
+    
+        } else if (eleccion == "cajones") {
+    
+            document.getElementById("articulos-ropa-limpia").innerHTML = "cajones"
+    
+        } else if (eleccion == "estantes") {
+    
+            document.getElementById("articulos-juguetes").innerHTML = "estantes"
+    
         }
+    
     }
-}
 
 
 
 niño.onclick = () => {
-    
-    console.log ("Haz seleccionado al niño")
-    
+        
     rellenarSpans("niño")
-    document.getElementById("pag1").classList.add("invisible")
-    document.getElementById("pag2").classList.remove("invisible")
+    setTimeout(() => {
+        document.getElementById("pag1").classList.add("invisible")
+        document.getElementById("pag2").classList.remove("invisible")
+    }, 3000);
+   
     
 };
 niña.onclick = () => {
-    console.log ("Haz seleccionado a la niña")
-    rellenarSpans ("niña")
-    document.getElementById ("pag1").classList.add ("invisible")
-    document.getElementById ("pag2").classList.remove ("invisible")
+   
+    rellenarSpans("niña")
+    setTimeout(() => {
+        document.getElementById("pag1").classList.add("invisible")
+        document.getElementById("pag2").classList.remove("invisible")
+    }, 3000);
+
 };
 
 trompo. onclick = () => {
-    console.log ("Haz seleccionado el trompo")
+
     seleccionJuguete ("trompo")
-    document.getElementById ("pag2").classList.add ("invisible")
-    document.getElementById ("pag3").classList.remove ("invisible")
+    setTimeout(() => {
+        document.getElementById ("pag2").classList.add ("invisible")
+        document.getElementById ("pag3").classList.remove ("invisible")
+    }, 3000);
 }
 
 yoyo. onclick = () => {
-    console.log ("Haz seleccionado el yoyo")
     seleccionJuguete ("yoyo")
+    setTimeout (() => {
     document.getElementById ("pag2").classList.add ("invisible")
     document.getElementById ("pag3").classList.remove ("invisible")
-}
+}, 3000);
 
+}
 dad.onclick = () => {
-    console.log ("Haz elegido a papá")
     Seleccionpadre ("dad")
+    setTimeout (() => {
     document.getElementById ("pag3").classList.add ("invisible")
     document.getElementById ("pag4").classList.remove ("invisible")
+}, 3000);
+
 }
 
 mom.onclick = () => {
-    console.log ("Haz elegido a mamá")
     Seleccionpadre ("mom") 
+    setTimeout (() => {
     document.getElementById ("pag3").classList.add ("invisible")
     document.getElementById ("pag4").classList.remove ("invisible")
+}, 3000);
+
 }
 
 cesta.onclick = () => {
-    console.log ("Haz seleccionado la cesta")
     seleccionMueble ("cesta") 
     
 }
 cajones.onclick = () => {
-    console.log ("Haz seleccionado los cajones")
     seleccionMueble ("cajones") 
 }
 
 estante.onclick = () => {
-    console.log ("Haz seleccionado el estante")
-    seleccionMueble ("estante") 
+    seleccionMueble ("estantes") 
+    setTimeout (() => {
     document.getElementById ("pag4").classList.add ("invisible")
     document.getElementById ("pag5").classList.remove ("invisible")
+}, 3000);
+
 }
 

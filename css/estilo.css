@@ -25,6 +25,8 @@ header {
   border-radius: 50%;
   max-width: 150px;
   max-height: 150px;
+  animation: bounce;
+  animation-duration: 2s;
 }
 
 
@@ -183,7 +185,7 @@ button {
   margin: 20px;
 }
 
-#boton-tarjeta, #boton-pago {
+#boton-tarjeta, #boton-pago, #fecha-tarjeta, #codigo-tarjeta, #clave, #email, #ingreso, #button {
   border-radius: 20%;
   padding:10px;
   margin: 20px;
@@ -198,4 +200,69 @@ button {
 img, svg {
   max-width: 200px;
   max-height: 100px;
+}
+
+@media only screen and (max-width: 768px) {
+  .page-area {
+    display: grid;
+    grid-template-areas: "logo logo nav" "nav . ." "main main main" "footer footer footer";
+  }
+
+  ul li a {
+    font-size: 1rem;
+  }
+
+
+   img.logo {
+    border-radius: 50%;
+    max-height: 100px;
+    width: auto;
+    display: inline-block;
+    margin: 0 0.5rem;
+    animation: bounce;
+    animation-duration: 2s;
+  }
+
+  #boton-tarjeta, #boton-pago, #fecha-tarjeta, #codigo-tarjeta, #clave, #email, #ingreso {
+    border-radius: 20%;
+    padding:10px;
+    margin: 20px;
+    height: 50px;
+    width: 200 px;
+  
+  }
+
+
+
+}
+@media only screen and (max-width: 576px) {
+  .page-area {
+    display: grid;
+    grid-template-areas: "logo nav nav" "nav . ." "main main main" "footer footer footer";
+  }
+
+  ul li a {
+    font-size: 1rem;
+  }
+
+
+  img.logo {
+    max-height: 70px;
+    border-radius: 50%;
+    width: auto;
+    display: inline-block;
+    margin: 0 0.5rem;
+    animation: bounce;
+    animation-duration: 2s;
+  }
+
+  #boton-tarjeta, #boton-pago, #fecha-tarjeta, #codigo-tarjeta, #clave, #email, #ingreso {
+    border-radius: 20%;
+    padding:10px;
+    margin: 20px;
+    height: 50px;
+    width: 200 px;
+  
+  }
+
 }

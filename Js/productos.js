@@ -95,7 +95,7 @@ obtenerproductos().then((ListadeCompra) => {
         precio: "1200" 
     };
 
-    console.log (Spreadproducto4);
+  
 
 
     function calcularCompra (total) {
@@ -106,5 +106,5 @@ obtenerproductos().then((ListadeCompra) => {
 
     console.log (productosDelcarrito);
     calcularCompra (total);
-    console.log (total);
+  
 });
