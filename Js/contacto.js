@@ -48,34 +48,24 @@ function limpiarCampos (nombre, apellido, email, mensaje) {
 }
 
 function CrearUsuario (nombre, apellido, email, mensaje) {
-    nombre= nombre.value;
-    apellido= apellido.value;
-    email=email.value;
-    mensaje=mensaje.value;
-    
-    
     const nuevoUsuario = new Usuario (nombre, apellido, email, mensaje);
     return nuevoUsuario; 
 }
 
 
 function guardarUsuario (usuario) {
-    let usuarioGuardado = FormUsuarios.push (usuario)
-    return usuarioGuardado;
+    FormUsuarios.push (usuario)
 }
 
 function Guardarstorage (elemento) {
     localStorage.setItem ("usuarios", JSON.stringify(elemento));
-    
-    
 }
 
 
 botonEnviar.addEventListener ("click", (e) => {
     e. preventDefault ()
-    
-    let nuevoUser = CrearUsuario (nombreUsuario, apellidoUsuario, UserMail, botonMensaje);
-    guardarUsuario (nombreUsuario, apellidoUsuario, UserMail, botonMensaje);
+    let nuevoUser = CrearUsuario (nombreUsuario.value, apellidoUsuario.value, UserMail.value, botonMensaje.value);
+    guardarUsuario (nuevoUser);
     Guardarstorage (FormUsuarios);
     
     

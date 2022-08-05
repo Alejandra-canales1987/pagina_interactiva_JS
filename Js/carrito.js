@@ -1,6 +1,6 @@
 //accedo al array de productos del cliente desde el LS
 let productosAsString = localStorage.getItem ("productos");
-let productosDelcarrito = JSON.parse(productosAsString);
+let productosDelcarrito = JSON.parse(productosAsString) || [];
 let total = 0;
 
 const boleta = document.createElement ("main");
@@ -14,9 +14,9 @@ function mostrarCarrito() {
 //aplico desestructurar al iterar el array "productosDelcarrito" que recupere del LS
 
 for (const producto of productosDelcarrito) {
-    const {nombre, precio} = producto
+    const {nombre, precio, imagen} = producto
     let li = document.createElement ("li")
-    li.innerHTML= `nombre: ${nombre} $ ${precio}`
+    li.innerHTML= `nombre: ${nombre} $ ${precio} <img src="${imagen}"></img>`
     document.getElementById ("productos").appendChild (li);
     total = total + producto.precio
 
@@ -25,7 +25,6 @@ for (const producto of productosDelcarrito) {
     li.appendChild (botonQuitar)
     botonQuitar.onclick = () => {
         li.remove();
-        boleta.innerHTML = `su total es de = ${total}`
         productosDelcarrito.splice(productosDelcarrito.findIndex((p) => {
             return p.nombre == producto.nombre
         }), 1)
@@ -39,15 +38,30 @@ for (const producto of productosDelcarrito) {
             imageHeight: 100,
             imageAlt: 'Custom image',
           })
+
+          total = total - producto.precio
+          boleta.innerHTML = `su total es de = ${total}`
     }
 }
 
+
+
 // operador lógico AND &&
 
-productosDelcarrito.length === 0 && alert("¡El carrito esta vacío!");
+productosDelcarrito.length === 0 && Swal.fire({
+    title: 'Oh no u_u',
+    text: 'Su carrito esta vacío',
+    imageUrl: "https://cdn2.iconfinder.com/data/icons/web-store-crayons-volume-1/256/Empty_Cart-512.png",
+    imageWidth: 200,
+    imageHeight: 100,
+    imageAlt: 'Custom image',
+  })
 
 document.getElementById("article").appendChild (boleta);
 boleta.innerHTML = `su total es de = ${total}`
+
+
+
 
 let botonTarjeta1= document.getElementById ("boton-tarjeta")
 const cleave = new Cleave('#boton-tarjeta', {
@@ -69,6 +83,7 @@ const cleave3 = new Cleave('#codigo-tarjeta', {
     blocks: [3],
     uppercase: true
 });
+
 let botonPago = document.getElementById("boton-pago")
 botonPago.onclick = (e) => {
     Swal.fire({
@@ -88,5 +103,32 @@ botonPago.onclick = (e) => {
      localStorage.clear (productosDelcarrito);
 }
 
+let botonActivo = document.getElementById ("boton-pago")
+botonActivo.disabled = true;
 
+function activarBoton() {
+    if (botonTarjeta1.value === ""
+        || botonTarjeta2.value === ""
+        || botonTarjeta3.value === "" ) {
+        botonActivo.disabled = true
+    } else {
+        botonActivo.disabled = false
+    }
+    return true
+}
 
+botonTarjeta1.addEventListener("change", activarBoton);
+botonTarjeta2.addEventListener("change", activarBoton);
+botonTarjeta3.addEventListener("change", activarBoton);
+
+function habilitarCompra () {
+    if (productosDelcarrito.length === 0){
+        botonActivo.disabled = true
+    } else {
+        botonActivo.disabled = false
+    }
+
+    return true
+}
+
+habilitarCompra ()

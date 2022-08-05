@@ -38,13 +38,13 @@ function seleccionJuguete(eleccion) {
 function Seleccionpadre(eleccion) {
     if (eleccion == "dad") {
         for (let span of document.getElementsByClassName("articulo-padre")) {
-            span.innerHTML = "a su papá" + "" + "Él le dijo: recoge tu cuarto y verás como aparece"
+            span.innerHTML = "a su papá. Él le dijo: recoge tu cuarto y verás como aparece"
             
         }
         
     } else if (eleccion == "mom") {
         for (let span of document.getElementsByClassName ("articulo-padre")) {
-            span.innerHTML = " a su mamá" + "" + "Ella le dijo: recoge tu cuarto y verás como aparece"
+            span.innerHTML = "a su mamá. Ella le dijo: recoge tu cuarto y verás como aparece"
         }
             
         }
@@ -126,20 +126,49 @@ mom.onclick = () => {
 
 }
 
+// variables de los objetos seteadas en false, para ordenarlos
+
+let juguetesOrdenados = false
+
+let ropaSuciaOrdenada = false
+
+let ropaLimpiaOrdenada = false
+
 cesta.onclick = () => {
-    seleccionMueble ("cesta") 
-    
+
+    console.log("Haz seleccionado la cesta")
+    seleccionMueble("cesta")
+    ropaSuciaOrdenada = true
+    ChequearOrden ();
+
 }
+
 cajones.onclick = () => {
-    seleccionMueble ("cajones") 
+
+    console.log("Haz seleccionado los cajones")
+    seleccionMueble("cajones")
+    ropaLimpiaOrdenada = true
+    ChequearOrden ();
+
 }
 
 estante.onclick = () => {
-    seleccionMueble ("estantes") 
-    setTimeout (() => {
-    document.getElementById ("pag4").classList.add ("invisible")
-    document.getElementById ("pag5").classList.remove ("invisible")
-}, 3000);
+    console.log("Haz seleccionado el estante")
+    seleccionMueble("estantes")
+    juguetesOrdenados= true
+    ChequearOrden ();
 
 }
+
+
+function ChequearOrden () {
+    if (juguetesOrdenados && ropaSuciaOrdenada && ropaLimpiaOrdenada) {
+    setTimeout (() =>{
+            document.getElementById ("pag4").classList.add ("invisible")
+            document.getElementById ("pag5").classList.remove ("invisible")
+        }, 3000);
+
+    }
+}
+
 
