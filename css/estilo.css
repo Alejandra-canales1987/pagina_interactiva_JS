@@ -43,6 +43,7 @@ h2 {
   width: 100px;
   height: 100px;
   margin: 10px;
+  border-width: 16px;
 }
 
 p {
@@ -60,7 +61,7 @@ main {
   justify-content: center;
 }
 
-.cuento-gallinita, .cuento-juguete {
+.cuento-juguete {
     background-color: aliceblue;
     border: 2px solid blue;
     border-radius: 5%;
@@ -185,11 +186,21 @@ button {
   margin: 20px;
 }
 
-#boton-tarjeta, #boton-pago, #fecha-tarjeta, #codigo-tarjeta, #clave, #email, #ingreso, #button {
+#boton-tarjeta, #boton-pago, #fecha-tarjeta, #codigo-tarjeta, #clave, #email, #ingreso, #button, #enviar {
   border-radius: 20%;
   padding:10px;
   margin: 20px;
 
+}
+
+.link-cuento {
+  display: flex;
+  justify-content: center;
+  text-decoration: none;
+  border-radius: 10%;
+  color:#9c459c;
+  padding: 2px 2px;
+  background-color: aliceblue;
 }
 
 #article {
@@ -208,9 +219,19 @@ img, svg {
     grid-template-areas: "logo logo nav" "nav . ." "main main main" "footer footer footer";
   }
 
+  h1, h2 {
+    font-size: 1rem;
+  }
+
   ul li a {
     font-size: 1rem;
   }
+
+  .titulo {
+    font-size: 1.4rem;
+    display: flex;
+    align-items: center;
+}
 
 
    img.logo {
@@ -228,8 +249,25 @@ img, svg {
     padding:10px;
     margin: 20px;
     height: 50px;
-    width: 200 px;
+    width: 100 px;
   
+  }
+
+  button {
+    border-radius: 20%;
+    padding:10px;
+    margin: 20px;
+    height: 50px;
+    width: 100 px;
+  }
+
+  img, .niños {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 200px;
+
   }
 
 
@@ -241,9 +279,20 @@ img, svg {
     grid-template-areas: "logo nav nav" "nav . ." "main main main" "footer footer footer";
   }
 
+  h1, h2 {
+    font-size: 1.2rem;
+  }
+ 
+
   ul li a {
     font-size: 1rem;
   }
+
+  .titulo {
+    font-size: 1.3rem;
+    display: flex;
+    align-items: center;
+}
 
 
   img.logo {
@@ -261,8 +310,26 @@ img, svg {
     padding:10px;
     margin: 20px;
     height: 50px;
-    width: 200 px;
+    width: 100 px;
   
+  }
+
+  button {
+    border-radius: 20%;
+    padding:10px;
+    margin: 20px;
+    height: 50px;
+    width: 100 px;
+  }
+
+  img, .niños {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 100px;
+
+
   }
 
 }
